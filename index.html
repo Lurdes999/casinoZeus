@@ -162,7 +162,14 @@
    class="whatsapp-button" target="_blank">
             <i class='fab fa-whatsapp' style='font-size:50px;'></i> ¡Crea tu usuario!
         </a>
-
+        <script>
+            document.querySelector('.whatsapp-button').addEventListener('click', function() {
+                fbq('track', 'Contact', { 
+                    content_name: 'Clic en botón WhatsApp',
+                    content_category: 'Interacción de usuario'
+                });
+            });
+        </script>
         <div class="min-charge">Mínimo de carga $2000</div>
     </div>
 </body>
