@@ -3,7 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page</title>
+    <title>Casino Zeus</title>
+    <style>
+        /* Estilo global */
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: url('https://img.freepik.com/free-vector/realistic-casino-background_23-2148144553.jpg') no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-shadow: 2px 2px 4px #000;
+        }
+
+        /* Título */
+        .title {
+            font-size: 3em;
+            font-weight: bold;
+            color: #FFD700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        /* Subtítulo */
+        .subtitle {
+            font-size: 1.5em;
+            color: #fff;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            padding: 0 15px;
+        }
+
+        /* Botón de WhatsApp */
+        .whatsapp-button {
+            background-color: #25D366;
+            color: #fff;
+            border: none;
+            padding: 20px 40px;
+            border-radius: 10px;
+            font-size: 1.5em;
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(0, 255, 0, 1);
+        }
+
+        .whatsapp-button i {
+            margin-right: 15px;
+            font-size: 1.5em;
+        }
+
+        /* Mensaje mínimo de carga */
+        .min-charge {
+            margin-top: 30px;
+            font-size: 1.2em;
+            color: #FFC300;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
     <!-- Meta Pixel Code -->
     <script>
         !function(f,b,e,v,n,t,s)
@@ -21,11 +92,16 @@
         <img height="1" width="1" src="https://www.facebook.com/tr?id=TU_PIXEL_ID&ev=PageView&noscript=1"/>
     </noscript>
     <!-- End Meta Pixel Code -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <h1>¡Bienvenidos a nuestra Landing!</h1>
-    <a href="https://api.whatsapp.com/send?phone=+549341367-5926" target="_blank">
-        <button>¡Contáctanos por WhatsApp!</button>
+    <div class="title">Casino Zeus</div>
+    <div class="subtitle">Para crear tu cuenta, envíanos un WhatsApp haciendo click en el botón de abajo</div>
+    
+    <a href="https://api.whatsapp.com/send?phone=+549112611-5649" class="whatsapp-button" target="_blank">
+        <i class="fab fa-whatsapp"></i> Crea tu usuario
     </a>
+
+    <div class="min-charge">Mínimo de carga $2000</div>
 </body>
 </html>
