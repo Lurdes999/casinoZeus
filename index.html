@@ -4,99 +4,118 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.5">
     <title>Casino Zeus</title>
-    <style>
-        /* Estilo global */
+<style>
+    /* Estilo global */
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('casino2.jpg') no-repeat center center/cover;
+        background-size: 100% 100%;
+        color: #fff;
+        text-align: center;
+        font-family: 'Arial', sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-shadow: 2px 2px 4px #000;
+    }
+
+    @media (max-width: 900px) {
         body {
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('casino2.jpg') no-repeat center center/cover;
-            background-size: 100% 100%; /* Fuerza la imagen a ocupar todo */
-            background-color: #000;
-            color: #fff;
-            text-align: center;
-            font-family: 'Arial', sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-shadow: 2px 2px 4px #000;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('casino2_mobile.jpg') no-repeat center center/cover;
+            background-size: cover;
         }
-        @media (max-width: 900px) {
-            body {
-                background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('casino2_mobile.jpg') no-repeat center center/cover;
-                background-size: cover;
-            }
+    }
 
-        }
+    /* Título con borde y sombra */
+    .title {
+        font-size: 3em;
+        font-weight: bold;
+        color: #FFD700;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        text-shadow: 3px 3px 6px rgba(0, 0, 0, 1), 0 0 15px #FFD700;
+        -webkit-text-stroke: 2px #000;
+    }
 
-        /* Título */
-        .title {
-            font-size: 3em;
-            font-weight: bold;
-            color: #FFD700;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
+    /* Subtítulo llamativo */
+    .subtitle {
+        font-size: 1.5em;
+        color: #fff;
+        margin-bottom: 30px;
+        text-transform: uppercase;
+        padding: 0 15px;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 1), 0 0 10px #fff;
+    }
 
-        /* Subtítulo */
-        .subtitle {
-            font-size: 1.5em;
-            color: #fff;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-            padding: 0 15px;
-        }
+    /* Botón con efecto neón */
+    .whatsapp-button {
+        background-color: #6a11cb;
+        background-image: linear-gradient(45deg, #6a11cb, #2575fc);
+        color: #fff;
+        border: none;
+        padding: 20px 40px;
+        border-radius: 10px;
+        font-size: 1.5em;
+        cursor: pointer;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        box-shadow: 0 0 20px rgba(106, 17, 203, 0.7);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        animation: pulse 2s infinite;
+    }
 
-        /* Botón de WhatsApp */
-        .whatsapp-button {
-            background-color: #25D366;
-            color: #fff;
-            border: none;
-            padding: 20px 40px;
-            border-radius: 10px;
-            font-size: 1.5em;
-            cursor: pointer;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            box-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
+    .whatsapp-button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 30px rgba(106, 17, 203, 1);
+    }
 
-        .whatsapp-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(0, 255, 0, 1);
-        }
+    .whatsapp-button i {
+        margin-right: 15px;
+        font-size: 1.5em;
+    }
 
-        .whatsapp-button i {
-            margin-right: 15px;
-            font-size: 1.5em;
+    @keyframes pulse {
+        0% {
+            box-shadow: 0 0 20px rgba(106, 17, 203, 0.7);
         }
+        50% {
+            box-shadow: 0 0 30px rgba(106, 17, 203, 1);
+        }
+        100% {
+            box-shadow: 0 0 20px rgba(106, 17, 203, 0.7);
+        }
+    }
 
-        /* Mensaje mínimo de carga */
-        .min-charge {
-            margin-top: 30px;
-            font-size: 1.2em;
-            color: #FFC300;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .all{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 500px;
-        }
-        @media (max-width: 900px) {
-            .all {
-                margin-top: 425px;
-                margin-bottom: 50px;
-            }
-        }
+    /* Mensaje mínimo de carga con sombra */
+    .min-charge {
+        margin-top: 30px;
+        font-size: 1.2em;
+        color: #FFC300;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 1), 0 0 15px #FFC300;
+    }
 
-    </style>
+    .all {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 500px;
+    }
+
+    @media (max-width: 900px) {
+        .all {
+            margin-top: 425px;
+            margin-bottom: 50px;
+        }
+    }
+</style>
+
     <!-- Meta Pixel Code -->
     <script>
         !function(f,b,e,v,n,t,s)
