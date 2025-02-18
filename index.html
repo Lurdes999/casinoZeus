@@ -22,11 +22,12 @@
             align-items: center;
             text-shadow: 2px 2px 4px #000;
         }
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
             body {
                 background: url('casino2_mobile.jpg') no-repeat center center;
                 background-size: cover;
             }
+
         }
 
         /* Título */
@@ -82,6 +83,19 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
+        .all{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 500px;
+        }
+        @media (max-width: 900px) {
+            .all {
+                margin-top: 425px;
+                margin-bottom: 50px;
+            }
+        }
+
     </style>
     <!-- Meta Pixel Code -->
     <script>
@@ -103,13 +117,15 @@
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="title">Casino Zeus</div>
-    <div class="subtitle">Para crear tu cuenta, envíanos un WhatsApp haciendo click en el botón de abajo</div>
-    
-    <a href="https://api.whatsapp.com/send?phone=5491126115649" class="whatsapp-button" target="_blank">
-        <i class="fab fa-whatsapp"></i> Crea tu usuario
-    </a>
+    <div class="all">
+        <div class="title">Casino Ganamos</div>
+        <div class="subtitle">Para crear tu cuenta, envíanos un WhatsApp haciendo click en el botón de abajo</div>
+        
+        <a href="https://api.whatsapp.com/send?phone=5491126115649" class="whatsapp-button" target="_blank">
+            <i class="fab fa-whatsapp"></i> Crea tu usuario
+        </a>
 
-    <div class="min-charge">Mínimo de carga $2000</div>
+        <div class="min-charge">Mínimo de carga $2000</div>
+    </div>
 </body>
 </html>
