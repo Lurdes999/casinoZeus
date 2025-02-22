@@ -161,11 +161,26 @@
             <i class='fab fa-whatsapp' style='font-size:50px;'></i> ¡Crea tu usuario!
         </a>
         <script>
+            const accessToken = "EAAoe6urdLAYBO5h3tE7PkHOBNVkFxNz11cjDPVu0Ek3wvqSY0cUdI4yDaZCaoEoY0BxABov1hEYw3S2hMuFhzQP3KPSVLjZAY4DtmquIjjlZCWvac5VugHYPtJvSZCkGFLopBi3LS842TyZCMEUtrfBSamBBf7NLzI7LSfYTBfNZCUbmdUcW5In8L6KZAPuS4AStwZDZD";
+            const pixelId = "599679726298160"; 
+            
             document.querySelector('.whatsapp-button').addEventListener('click', function() {
-                fbq('track', 'Contact', { 
-                    content_name: 'Clic en botón WhatsApp',
-                    content_category: 'Interacción de usuario'
-                });
+                fbq('track', 'Contact', { content_name: 'Clic en WhatsApp' });
+            
+                fetch(`https://graph.facebook.com/v18.0/${pixelId}/events`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        data: [{
+                            event_name: "Contact",
+                            event_time: Math.floor(Date.now() / 1000),
+                            action_source: "website"
+                        }],
+                        access_token: accessToken
+                    })
+                }).then(response => response.json())
+                  .then(data => console.log("Respuesta API Conversiones:", data))
+                  .catch(error => console.error("Error en API Conversiones:", error));
             });
         </script>
         <div class="min-charge">Mínimo de carga $2000</div>
