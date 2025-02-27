@@ -131,7 +131,11 @@
             content_name: 'Clic en botón WhatsApp',
             content_category: 'Interacción de usuario'
         });
-
+fetch('https://api64.ipify.org?format=json')
+    .then(response => response.json())
+    .then(data => {
+        let userIP = data.ip;
+        
         fetch(`https://graph.facebook.com/v18.0/${pixelId}/events`, {
             method: "POST",
             headers: {
@@ -144,7 +148,7 @@
                     action_source: "website",
                     event_source_url: window.location.href, // URL del sitio web
                     user_data: {
-                        client_ip_address: "{{user_ip}}", // Reemplázalo con la IP real del usuario
+                        client_ip_address: userIP, 
                         client_user_agent: navigator.userAgent // Agregar user agent
                     }
                 }],
@@ -154,7 +158,8 @@
         .then(response => response.json())
         .then(data => console.log("Respuesta API Conversiones:", data))
         .catch(error => console.error("Error en API Conversiones:", error));
-    });
+    })
+    .catch(error => console.error("Error obteniendo la IP:", error));
 </script>
 
 </head>
