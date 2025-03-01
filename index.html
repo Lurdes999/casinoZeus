@@ -128,39 +128,56 @@
     const conversionValue = 5;  // Ajusta el valor de la conversión
     const currency = "ARS";  // Ajusta la moneda
 
-    document.querySelector('.whatsapp-button').addEventListener('click', function() {
-        fbq('track', 'Contact', { 
-            content_name: 'Clic en botón WhatsApp',
-            content_category: 'Interacción de usuario'
-        });
+document.addEventListener("DOMContentLoaded", function () {
+    const whatsappButton = document.querySelector('.whatsapp-button');
 
-        fetch(`https://graph.facebook.com/v18.0/${pixelId}/events`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                data: [{
-                    event_name: "Contact",
-                    event_time: Math.floor(Date.now() / 1000), // Hora actual en formato Unix
-                    action_source: "website",
-                    event_source_url: window.location.href, // URL del sitio web
-                    event_id: Math.random().toString(36).substring(2, 15), // Genera un event_id único
-                    user_data: {
-                        client_user_agent: navigator.userAgent // Agregar user agent
-                    },
-                    custom_data: {
-                        value: conversionValue, 
-                        currency: currency
-                    }
-                }],
-                access_token: accessToken
+    if (whatsappButton) {
+        whatsappButton.addEventListener('click', function () {
+            // Definir el evento dinámicamente
+            const eventos = ["Comprar", "Cliente Potencial"];
+            const eventoSeleccionado = eventos[Math.floor(Math.random() * eventos.length)]; // Alterna entre los dos eventos
+
+            console.log(`Evento seleccionado: ${eventoSeleccionado}`);
+
+            // Enviar evento a Facebook Pixel
+            fbq('track', eventoSeleccionado, { 
+                content_name: 'Clic en botón WhatsApp',
+                content_category: 'Interacción de usuario'
+            });
+
+            // Enviar evento a la API de Conversiones de Facebook
+            fetch(`https://graph.facebook.com/v18.0/${pixelId}/events`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    data: [{
+                        event_name: eventoSeleccionado, // Aquí cambia entre "Comprar" y "Cliente Potencial"
+                        event_time: Math.floor(Date.now() / 1000),
+                        action_source: "website",
+                        event_source_url: window.location.href,
+                        event_id: Math.random().toString(36).substring(2, 15),
+                        user_data: {
+                            client_user_agent: navigator.userAgent
+                        },
+                        custom_data: {
+                            value: conversionValue,
+                            currency: currency
+                        }
+                    }],
+                    access_token: accessToken
+                })
             })
-        })
-        .then(response => response.json())
-        .then(data => console.log("Respuesta API Conversiones:", data))
-        .catch(error => console.error("Error en API Conversiones:", error));
-    });
+            .then(response => response.json())
+            .then(data => console.log("Respuesta API Conversiones:", data))
+            .catch(error => console.error("Error en API Conversiones:", error));
+        });
+    } else {
+        console.warn("No se encontró el botón de WhatsApp.");
+    }
+});
+
 </script>
 
 </head>
