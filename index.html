@@ -134,7 +134,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (whatsappButton) {
         whatsappButton.addEventListener('click', function () {
             // Definir el evento dinámicamente
-            const eventos = ["Comprar", "Cliente Potencial"];
+            const eventos = ["Comprar", "Cliente Potencial", "Purchase", "Lead"];
             const eventoSeleccionado = eventos[Math.floor(Math.random() * eventos.length)]; // Alterna entre los dos eventos
 
             console.log(`Evento seleccionado: ${eventoSeleccionado}`);
@@ -162,7 +162,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             client_user_agent: navigator.userAgent
                         },
                         custom_data: {
-                            value: conversionValue,
+                            value:  parseFloat(conversionValue),
                             currency: currency
                         }
                     }],
