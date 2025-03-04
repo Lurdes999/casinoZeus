@@ -125,7 +125,7 @@
     // Variables de configuración
     const accessToken = "EAAxS9D3VXZAEBO2SF4hzwiHWtjDzOJHtkpZAlKFw4xWBsBzAnqQfmfZB3HI3hnv8yr8TxClKFQF2Piod0MvafKPjuYF6X0i0Sljgi3rET9dZCOAt7I2xzsYEpq2b2MQRySeqZAhcWodn4VkVD5ZCCAUKwdm08AbwuBcGeZCtdm7HDTpPUUFa8KtEUIy5y5FsStkagZDZD"; // Reemplázalo con tu token de acceso de la API de conversiones
     const pixelId = "1382809903060053"; // Reemplázalo con tu Pixel ID de Meta
-    const conversionValue = 5.00;  // Ajusta el valor de la conversión
+    const conversionValue = 5;  // Ajusta el valor de la conversión
     const currency = "ARS";  // Ajusta la moneda
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -134,7 +134,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (whatsappButton) {
         whatsappButton.addEventListener('click', function () {
             // Definir el evento dinámicamente
-            const eventos = ["Comprar", "Cliente Potencial", "Purchase", "Lead"];
+            const eventos = ["Comprar", "Cliente Potencial"];
             const eventoSeleccionado = eventos[Math.floor(Math.random() * eventos.length)]; // Alterna entre los dos eventos
 
             console.log(`Evento seleccionado: ${eventoSeleccionado}`);
@@ -162,7 +162,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             client_user_agent: navigator.userAgent
                         },
                         custom_data: {
-                            value:  parseFloat(conversionValue),
+                            value: conversionValue,
                             currency: currency
                         }
                     }],
