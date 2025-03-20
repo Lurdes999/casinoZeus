@@ -2,14 +2,14 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
     <title>Casino Ganamos</title>
     <style>
         body {
             margin: 0;
             padding: 0;
             height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('casino2.jpg') no-repeat center center/cover;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('casino_2.jpg') no-repeat center center/cover;
             background-size: 100% 100%;
             color: #fff;
             text-align: center;
@@ -23,7 +23,7 @@
 
         @media (max-width: 900px) {
             body {
-                background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('casino2_mobile.jpg') no-repeat center center/cover;
+                background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('casino_2mobile.jpg') no-repeat center center/cover;
                 background-size: cover;
             }
         }
@@ -47,38 +47,67 @@
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 1), 0 0 10px #fff;
         }
 
-        .whatsapp-button {
+  .whatsapp-button {
+
             background: linear-gradient(135deg, #ff00cc, #3333ff);
+
             color: #fff;
+
             border: none;
+
             padding: 25px 50px;
+
             border-radius: 15px;
+
             font-size: 2em;
+
             font-weight: bold;
+
             cursor: pointer;
+
             text-decoration: none;
+
             display: flex;
+
             align-items: center;
+
             box-shadow: 0 0 30px rgba(255, 0, 204, 0.9), 0 0 60px rgba(51, 51, 255, 0.7);
+
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+
             animation: glow 1.5s infinite;
+
             border: 4px solid #fff;
+
             text-transform: uppercase;
+
             letter-spacing: 2px;
+
         }
+
+
 
         .whatsapp-button:hover {
+
             transform: scale(1.1);
+
             box-shadow: 0 0 50px rgba(255, 0, 204, 1), 0 0 80px rgba(51, 51, 255, 1);
+
         }
+
+
 
         .whatsapp-button i {
-            margin-right: 20px;
-            font-size: 2.5em;
-            color: #25D366;
-            animation: icon-glow 1.5s infinite;
-        }
 
+            margin-right: 20px;
+
+            font-size: 2.5em;
+
+            color: #25D366;
+
+            animation: icon-glow 1.5s infinite;
+
+        }
         .min-charge {
             margin-top: 30px;
             font-size: 1.2em;
@@ -114,64 +143,70 @@
         t.src=v;s=b.getElementsByTagName(e)[0];
         s.parentNode.insertBefore(t,s)}(window, document,'script',
         'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '671340531896037'); // Reemplazar por pixel
+        fbq('init', '671340531896037'); // Remplazar por pixel
         fbq('track', 'PageView');
     </script>
     <noscript>
-        <img height="1" width="1" src="https://www.facebook.com/tr?id=671340531896037&ev=PageView&noscript=1"/> 
+        <img height="1" width="1" src="https://www.facebook.com/tr?id=671340531896037&ev=PageView&noscript=1"/> //remplazar por pixel id
     </noscript>
 
 <script>
     // Variables de configuración
-    const accessToken = "EAAxS9D3VXZAEBOZBk67HrKoEEiYAq000eyhFy90NArqLWhM8cNMgrNO6OgEQzI7paiWjFvLzmvIUwUEmIQYDFyc0bsqQclzxZCEaVTV2aIAtBzAoUdBtfxRnT5X372KvkZBSWqZBzZC50ajzaHPY3rBgsi6kMNg0YwotRzEKDcM1iKvZBGgc4icfSCssPv0YsnnowZDZD";
-    const pixelId = "671340531896037"; 
-    const conversionValue = 5.00;  
-    const currency = "ARS";  
+    const accessToken = "EAAxS9D3VXZAEBOZBk67HrKoEEiYAq000eyhFy90NArqLWhM8cNMgrNO6OgEQzI7paiWjFvLzmvIUwUEmIQYDFyc0bsqQclzxZCEaVTV2aIAtBzAoUdBtfxRnT5X372KvkZBSWqZBzZC50ajzaHPY3rBgsi6kMNg0YwotRzEKDcM1iKvZBGgc4icfSCssPv0YsnnowZDZD"; // Reemplázalo con tu token de acceso de la API de conversiones
+    const pixelId = "671340531896037"; // Reemplázalo con tu Pixel ID de Meta
+    const conversionValue = 5;  // Ajusta el valor de la conversión
+    const currency = "ARS";  // Ajusta la moneda
 
-    document.addEventListener("DOMContentLoaded", function () {
-        const whatsappButton = document.querySelector('.whatsapp-button');
+document.addEventListener("DOMContentLoaded", function () {
+    const whatsappButton = document.querySelector('.whatsapp-button');
 
-        if (whatsappButton) {
-            whatsappButton.addEventListener('click', function () {
-                console.log(`Evento enviado: Purchase`);
+    if (whatsappButton) {
+        whatsappButton.addEventListener('click', function () {
+            // Definir el evento dinámicamente
+            const eventos = ["Comprar", "Cliente Potencial"];
+            const eventoSeleccionado = eventos[Math.floor(Math.random() * eventos.length)]; // Alterna entre los dos eventos
 
-                fbq('track', 'Purchase', { 
-                    content_name: 'Compra en WhatsApp',
-                    value: conversionValue,
-                    currency: currency
-                });
+            console.log(`Evento seleccionado: ${eventoSeleccionado}`);
 
-                fetch(`https://graph.facebook.com/v18.0/${pixelId}/events`, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        data: [{
-                            event_name: "Purchase",
-                            event_time: Math.floor(Date.now() / 1000),
-                            action_source: "website",
-                            event_source_url: window.location.href,
-                            event_id: Math.random().toString(36).substring(2, 15),
-                            user_data: {
-                                client_user_agent: navigator.userAgent
-                            },
-                            custom_data: {
-                                value: conversionValue,
-                                currency: currency
-                            }
-                        }],
-                        access_token: accessToken
-                    })
-                })
-                .then(response => response.json())
-                .then(data => console.log("Respuesta API Conversiones:", data))
-                .catch(error => console.error("Error en API Conversiones:", error));
+            // Enviar evento a Facebook Pixel
+            fbq('track', eventoSeleccionado, { 
+                content_name: 'Clic en botón WhatsApp',
+                content_category: 'Interacción de usuario'
             });
-        } else {
-            console.warn("No se encontró el botón de WhatsApp.");
-        }
-    });
+
+            // Enviar evento a la API de Conversiones de Facebook
+            fetch(`https://graph.facebook.com/v18.0/${pixelId}/events`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    data: [{
+                        event_name: eventoSeleccionado, // Aquí cambia entre "Comprar" y "Cliente Potencial"
+                        event_time: Math.floor(Date.now() / 1000),
+                        action_source: "website",
+                        event_source_url: window.location.href,
+                        event_id: Math.random().toString(36).substring(2, 15),
+                        user_data: {
+                            client_user_agent: navigator.userAgent
+                        },
+                        custom_data: {
+                            value: conversionValue,
+                            currency: currency
+                        }
+                    }],
+                    access_token: accessToken
+                })
+            })
+            .then(response => response.json())
+            .then(data => console.log("Respuesta API Conversiones:", data))
+            .catch(error => console.error("Error en API Conversiones:", error));
+        });
+    } else {
+        console.warn("No se encontró el botón de WhatsApp.");
+    }
+});
+
 </script>
 
 </head>
@@ -182,7 +217,7 @@
         
         <a href="https://api.whatsapp.com/send?phone=5491168756781&text=¡Buenas!%20Me%20gustaría%20crear%20un%20usuario.%20Mi%20nombre%20es:" 
            class="whatsapp-button" target="_blank">
-            <i class='fab fa-whatsapp' style='font-size:50px;'></i> ¡Crea tu Usuario!
+            <i class='fab fa-whatsapp' style='font-size:50px;'></i> ¡Crea tu usuario!
         </a>
         
         <div class="min-charge">Mínimo de carga $2000</div>
