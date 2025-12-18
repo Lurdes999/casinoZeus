@@ -47,7 +47,7 @@
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 1), 0 0 10px #fff;
         }
 
-  .whatsapp-button {
+  .cta-button {
 
             background: linear-gradient(135deg, #ff00cc, #3333ff);
 
@@ -87,7 +87,7 @@
 
 
 
-        .whatsapp-button:hover {
+        .cta-button:hover {
 
             transform: scale(1.1);
 
@@ -97,7 +97,7 @@
 
 
 
-        .whatsapp-button i {
+        .cta-button i {
 
             margin-right: 20px;
 
@@ -157,11 +157,41 @@
     <div class="all">
         <div class="title">Casino Ganamos</div>
         <div class="subtitle">Para crear tu cuenta, envíanos un WhatsApp haciendo click en el botón de abajo</div>
-        <a href="https://api.whatsapp.com/send?phone=5491164571305&text=¡Buen4s!%20Me%20gust4rí4%20cre4r%20un%20usu4rio.%20Mi%20nombre%20es:" 
-           class="whatsapp-button" target="_blank" onclick="fbq('trackCustom', 'WhatsAppClick', {value: 1000.00, currency: 'ARS'})">
+        <a href="#" 
+           id="whatsapp-button"
+           class="cta-button" 
+           target="_blank" 
+           onclick="fbq('trackCustom', 'WhatsAppClick')">
             <i class='fab fa-whatsapp'></i> ¡Crea tu usuario!
         </a>
         <div class="min-charge">Mínimo de carga $2000</div>
     </div>
+    <script>
+        // Cargar número de teléfono dinámicamente desde la API
+        async function loadPhoneNumber() {
+            try {
+                const response = await fetch('/api/phone');
+                const data = await response.json();
+                
+                const phone = data.phone || '5491157552283';
+                const message = data.message || '¡Buen4s!%20Me%20gust4rí4%20cre4r%20un%20usu4rio.%20Mi%20nombre%20es:';
+                
+                const whatsappButton = document.getElementById('whatsapp-button');
+                whatsappButton.href = `https://api.whatsapp.com/send?phone=${phone}&text=${message}`;
+            } catch (error) {
+                console.error('Error al cargar el número de teléfono:', error);
+                // Fallback al número por defecto si hay error
+                const whatsappButton = document.getElementById('whatsapp-button');
+                whatsappButton.href = 'https://api.whatsapp.com/send?phone=5491157552283&text=¡Buen4s!%20Me%20gust4rí4%20cre4r%20un%20usu4rio.%20Mi%20nombre%20es:';
+            }
+        }
+
+        // Cargar cuando la página esté lista
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', loadPhoneNumber);
+        } else {
+            loadPhoneNumber();
+        }
+    </script>
 </body>
 </html>
